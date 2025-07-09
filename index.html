@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ishidafarm - 個人経営農家</title>
+    <meta name="description" content="ishidafarmは新鮮で安全な農産物を提供する個人経営農家です。季節の野菜・果物を心を込めて栽培しています。">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.PNG" alt="ishidafarm ロゴ" class="logo-image">
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="#home">ホーム</a></li>
+                    <li><a href="#about">農場紹介</a></li>
+                    <li><a href="#products">農産物</a></li>
+                    <li><a href="#shop">オンラインショップ</a></li>
+                    <li><a href="#blog">ブログ</a></li>
+                    <li><a href="#story">農家の想い</a></li>
+                    <li><a href="#access">アクセス</a></li>
+                    <li><a href="#contact">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2>自然の恵みを<br>心を込めてお届け</h2>
+                <p>新鮮で安全な農産物を<br>丁寧に栽培しています</p>
+                <a href="#products" class="cta-button">農産物を見る</a>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2>農場紹介</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>ISHIDA FARMについて</h3>
+                        <p>ISHIDA FARMは、代々受け継がれた土地で、化学肥料や農薬を極力使わない自然に近い農法で野菜を育てています。土づくりから収穫まで、すべての工程に愛情を込めて取り組んでいます。</p>
+                        <p>季節ごとに旬の野菜や果物を栽培し、採れたての新鮮さをそのままお客様にお届けしています。</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="images/farm-overview.jpg" alt="農場の風景">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="products" class="products">
+            <div class="container">
+                <h2>農産物</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <img src="images/peach.jpg" alt="桃">
+                        <h3>桃</h3>
+                        <p>甘くてジューシーな桃を栽培しています。夏の暑い時期に収穫される、みずみずしい桃をお楽しみください。</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="images/grapes.jpg" alt="ぶどう">
+                        <h3>ぶどう</h3>
+                        <p>糖度の高い美味しいぶどうを栽培しています。秋の味覚として人気の高い品種を取り揃えています。</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="images/plum.jpg" alt="すもも">
+                        <h3>すもも</h3>
+                        <p>甘酸っぱくて爽やかな風味のすももを栽培しています。初夏の季節に収穫される、みずみずしい果実をお楽しみください。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="shop" class="shop">
+            <div class="container">
+                <h2>オンラインショップ</h2>
+                <div class="shop-intro">
+                    <p>新鮮な農産物を直接お客様のもとへお届けいたします。収穫したての美味しさをぜひお楽しみください。</p>
+                </div>
+                <div class="shop-grid">
+                    <div class="shop-item">
+                        <img src="images/peach.jpg" alt="桃">
+                        <h3>桃</h3>
+                        <p class="price">¥2,800 / 1kg</p>
+                        <p class="description">甘くてジューシーな桃。夏の暑い時期に収穫される、みずみずしい桃です。</p>
+                        <button class="add-to-cart">カートに追加</button>
+                    </div>
+                    <div class="shop-item">
+                        <img src="images/grapes.jpg" alt="ぶどう">
+                        <h3>ぶどう</h3>
+                        <p class="price">¥3,200 / 1房</p>
+                        <p class="description">糖度の高い美味しいぶどう。秋の味覚として人気の高い品種です。</p>
+                        <button class="add-to-cart">カートに追加</button>
+                    </div>
+                    <div class="shop-item">
+                        <img src="images/plum.jpg" alt="すもも">
+                        <h3>すもも</h3>
+                        <p class="price">¥2,400 / 1kg</p>
+                        <p class="description">甘酸っぱくて爽やかな風味のすもも。初夏の季節に収穫される、みずみずしい果実です。</p>
+                        <button class="add-to-cart">カートに追加</button>
+                    </div>
+                </div>
+                <div class="cart-summary">
+                    <h3>カート</h3>
+                    <div id="cart-items"></div>
+                    <div class="cart-total">
+                        <strong>合計: ¥<span id="cart-total">0</span></strong>
+                    </div>
+                    <button class="checkout-btn">注文する</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="blog" class="blog">
+            <div class="container">
+                <h2>ブログ</h2>
+                <div class="blog-intro">
+                    <p>日々の農作業や季節の情報をお届けします。農場での出来事や栽培のこだわりをご紹介しています。</p>
+                </div>
+                <div class="blog-grid">
+                    <article class="blog-post">
+                        <div class="blog-image">
+                            <img src="images/6FAD2181-19E8-462B-A8F8-12704418C1A3.PNG" alt="ブドウの花">
+                        </div>
+                        <div class="blog-content">
+                            <h3>ブドウの花が咲きました</h3>
+                            <p class="blog-date">2024年7月5日</p>
+                            <p>今年もブドウの花が美しく咲きました。小さな花房が房状に咲く様子は、まるで自然の芸術作品のようです。これから実を結び、秋には美味しいブドウになります。</p>
+                            <a href="#" class="read-more">続きを読む</a>
+                        </div>
+                    </article>
+                    <article class="blog-post">
+                        <div class="blog-image">
+                            <img src="images/peach.jpg" alt="桃の栽培">
+                        </div>
+                        <div class="blog-content">
+                            <h3>桃の摘果作業</h3>
+                            <p class="blog-date">2024年6月28日</p>
+                            <p>桃の品質を高めるため、摘果作業を行いました。一つ一つ丁寧に選別し、栄養を集中させることで、より甘く大きな桃を育てています。</p>
+                            <a href="#" class="read-more">続きを読む</a>
+                        </div>
+                    </article>
+                    <article class="blog-post">
+                        <div class="blog-image">
+                            <img src="images/plum.jpg" alt="すももの収穫">
+                        </div>
+                        <div class="blog-content">
+                            <h3>すもも収穫開始</h3>
+                            <p class="blog-date">2024年6月20日</p>
+                            <p>今年のすもも収穫が始まりました。梅雨の合間を縫って、完熟したすももを一つ一つ丁寧に収穫しています。爽やかな酸味と甘みのバランスが絶妙です。</p>
+                            <a href="#" class="read-more">続きを読む</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="story" class="story">
+            <div class="container">
+                <h2>農家の想い</h2>
+                <div class="story-content">
+                    <p>私たちの農業は、単に作物を育てるだけではありません。土や自然と向き合い、季節の変化を感じながら、安全で美味しい農産物を育てることに情熱を注いでいます。</p>
+                    <p>お客様の笑顔を思い浮かべながら、一つひとつの作物を大切に育てています。化学肥料や農薬に頼らず、自然の力を最大限に活かした栽培方法で、安心してお召し上がりいただける農産物をお届けしています。</p>
+                    <p>これからも、地域の皆様に愛され続ける農場を目指し、美味しい農産物作りに励んでまいります。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="access" class="access">
+            <div class="container">
+                <h2>アクセス・営業時間</h2>
+                <div class="access-content">
+                    <div class="access-info">
+                        <h3>農場情報</h3>
+                        <p><strong>住所:</strong> 〒406-0854 山梨県笛吹市境川町寺尾4035-2</p>
+                        <p><strong>電話:</strong> 000-0000-0000</p>
+                        <p><strong>営業時間:</strong> 9:00 - 17:00</p>
+                        <p><strong>定休日:</strong> 不定休（農作業の都合により）</p>
+                        <p><strong>直売所:</strong> 土日祝日のみ営業</p>
+                    </div>
+                    <div class="access-map">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3244.4580611261035!2d138.59302157521654!3d35.59176587261625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601bfae091f53a2f%3A0x9f0d186608b8e40e!2z44CSNDA2LTA4NTQg5bGx5qKo55yM56yb5ZC55biC5aKD5bed55S65a-65bC-77yU77yQ77yT77yV4oiS77yS!5e0!3m2!1sja!2sjp!4v1752071597652!5m2!1sja!2sjp"
+                            width="100%" 
+                            height="300" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>お問い合わせ</h2>
+                <div class="contact-content">
+                    <p>農産物のご注文やご質問がございましたら、お気軽にお問い合わせください。</p>
+                    <form class="contact-form" action="mailto:mmyy03220302@yahoo.co.jp" method="POST" enctype="text/plain">
+                        <div class="form-group">
+                            <label for="name">お名前 *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">メールアドレス *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">電話番号</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">件名</label>
+                            <select id="subject" name="subject">
+                                <option value="">選択してください</option>
+                                <option value="order">商品のご注文</option>
+                                <option value="inquiry">商品についてのお問い合わせ</option>
+                                <option value="visit">農場見学について</option>
+                                <option value="other">その他</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">メッセージ *</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">送信する</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-social">
+                    <h3>SNSでも情報発信中</h3>
+                    <div class="social-links">
+                        <a href="#" target="_blank" class="social-link instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="#" target="_blank" class="social-link twitter">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                            <span>Twitter</span>
+                        </a>
+                        <a href="#" target="_blank" class="social-link tiktok">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                            </svg>
+                            <span>TikTok</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-info">
+                    <p>&copy; 2024 ishidafarm. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
