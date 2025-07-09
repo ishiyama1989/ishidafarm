@@ -174,6 +174,8 @@ window.addEventListener('scroll', function() {
 
 // Form submission handler
 document.querySelector('.contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
     // Get form data
     const formData = new FormData(this);
     const data = {};
@@ -182,23 +184,56 @@ document.querySelector('.contact-form').addEventListener('submit', function(e) {
     });
     
     // Simple validation
-    if (!data.name || !data.email || !data.message) {
-        e.preventDefault();
-        alert('必須項目を入力してください。');
+    if (!data.name || !data._replyto || !data.message) {
+        showFormStatus('必須項目を入力してください。', 'error');
         return;
     }
     
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(data.email)) {
-        e.preventDefault();
-        alert('正しいメールアドレスを入力してください。');
+    if (!emailRegex.test(data._replyto)) {
+        showFormStatus('正しいメールアドレスを入力してください。', 'error');
         return;
     }
     
-    // メールアプリを開く前に確認
-    alert('メールアプリが開きます。お問い合わせありがとうございます。');
+    // Show loading status
+    showFormStatus('送信中...', 'loading');
+    
+    // Submit form data to Formspree
+    fetch(this.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            showFormStatus('お問い合わせありがとうございます。メッセージを送信しました。', 'success');
+            this.reset();
+        } else {
+            throw new Error('送信に失敗しました');
+        }
+    })
+    .catch(error => {
+        showFormStatus('送信に失敗しました。しばらく経ってから再度お試しください。', 'error');
+    });
 });
+
+// Form status display function
+function showFormStatus(message, type) {
+    const statusDiv = document.getElementById('form-status');
+    statusDiv.textContent = message;
+    statusDiv.className = `form-status ${type}`;
+    statusDiv.style.display = 'block';
+    
+    // Auto-hide after 5 seconds for success messages
+    if (type === 'success') {
+        setTimeout(() => {
+            statusDiv.style.display = 'none';
+        }, 5000);
+    }
+}
 
 // Mobile menu toggle (if needed in future)
 function toggleMobileMenu() {

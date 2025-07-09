@@ -203,14 +203,14 @@
                 <h2>お問い合わせ</h2>
                 <div class="contact-content">
                     <p>農産物のご注文やご質問がございましたら、お気軽にお問い合わせください。</p>
-                    <form class="contact-form" action="mailto:mmyy03220302@yahoo.co.jp" method="POST" enctype="text/plain">
+                    <form class="contact-form" action="https://formspree.io/f/xpwagzky" method="POST">
                         <div class="form-group">
                             <label for="name">お名前 *</label>
                             <input type="text" id="name" name="name" required>
                         </div>
                         <div class="form-group">
                             <label for="email">メールアドレス *</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="_replyto" required>
                         </div>
                         <div class="form-group">
                             <label for="phone">電話番号</label>
@@ -231,6 +231,7 @@
                         </div>
                         <button type="submit" class="submit-button">送信する</button>
                     </form>
+                    <div id="form-status" class="form-status" style="display: none;"></div>
                 </div>
             </div>
         </section>
