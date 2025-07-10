@@ -179,9 +179,9 @@
                         <h3>農場情報</h3>
                         <p><strong>住所:</strong> 〒406-0854 山梨県笛吹市境川町寺尾4035-2</p>
                         <p><strong>電話:</strong> 000-0000-0000</p>
-                        <p><strong>営業時間:</strong> 9:00 - 17:00</p>
+                        <p><strong>営業時間:</strong> 現在営業なし</p>
                         <p><strong>定休日:</strong> 不定休（農作業の都合により）</p>
-                        <p><strong>直売所:</strong> 土日祝日のみ営業</p>
+                        <p><strong>直売所:</strong> 現在営業なし</p>
                     </div>
                     <div class="access-map">
                         <iframe 
@@ -203,14 +203,14 @@
                 <h2>お問い合わせ</h2>
                 <div class="contact-content">
                     <p>農産物のご注文やご質問がございましたら、お気軽にお問い合わせください。</p>
-                    <form class="contact-form" action="https://formspree.io/f/xpwagzky" method="POST">
+                    <form class="contact-form" id="contact-form">
                         <div class="form-group">
                             <label for="name">お名前 *</label>
                             <input type="text" id="name" name="name" required>
                         </div>
                         <div class="form-group">
                             <label for="email">メールアドレス *</label>
-                            <input type="email" id="email" name="_replyto" required>
+                            <input type="email" id="email" name="email" required>
                         </div>
                         <div class="form-group">
                             <label for="phone">電話番号</label>
@@ -270,6 +270,7 @@
         </div>
     </footer>
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

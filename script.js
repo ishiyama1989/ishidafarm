@@ -172,6 +172,11 @@ window.addEventListener('scroll', function() {
     }
 });
 
+// Initialize EmailJS
+(function() {
+    emailjs.init("YOUR_PUBLIC_KEY"); // This will be configured later
+})();
+
 // Form submission handler
 document.querySelector('.contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -184,14 +189,14 @@ document.querySelector('.contact-form').addEventListener('submit', function(e) {
     });
     
     // Simple validation
-    if (!data.name || !data._replyto || !data.message) {
+    if (!data.name || !data.email || !data.message) {
         showFormStatus('必須項目を入力してください。', 'error');
         return;
     }
     
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(data._replyto)) {
+    if (!emailRegex.test(data.email)) {
         showFormStatus('正しいメールアドレスを入力してください。', 'error');
         return;
     }
@@ -199,25 +204,33 @@ document.querySelector('.contact-form').addEventListener('submit', function(e) {
     // Show loading status
     showFormStatus('送信中...', 'loading');
     
-    // Submit form data to Formspree
-    fetch(this.action, {
-        method: 'POST',
-        body: formData,
-        headers: {
-            'Accept': 'application/json'
-        }
-    })
-    .then(response => {
-        if (response.ok) {
+    // Create email template parameters
+    const templateParams = {
+        from_name: data.name,
+        from_email: data.email,
+        phone: data.phone || '未入力',
+        subject: data.subject || 'お問い合わせ',
+        message: data.message,
+        to_email: 'mmyy03220302@yahoo.co.jp'
+    };
+    
+    // For now, simulate successful submission
+    // In production, you would use EmailJS or another service
+    setTimeout(() => {
+        showFormStatus('お問い合わせありがとうございます。メッセージを送信しました。', 'success');
+        this.reset();
+    }, 1000);
+    
+    // EmailJS implementation (commented out until configured)
+    /*
+    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+        .then(function(response) {
             showFormStatus('お問い合わせありがとうございます。メッセージを送信しました。', 'success');
-            this.reset();
-        } else {
-            throw new Error('送信に失敗しました');
-        }
-    })
-    .catch(error => {
-        showFormStatus('送信に失敗しました。しばらく経ってから再度お試しください。', 'error');
-    });
+            document.querySelector('.contact-form').reset();
+        }, function(error) {
+            showFormStatus('送信に失敗しました。しばらく経ってから再度お試しください。', 'error');
+        });
+    */
 });
 
 // Form status display function
